@@ -1,0 +1,3769 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+\usefonttheme{professionalfonts}
+\end_preamble
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 10
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+An Overview of 
+\begin_inset Newline newline
+\end_inset
+
+The Kruskal Wallis Test
+\end_layout
+
+\begin_layout Author
+Spandan Ghoshal 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Ritwick Mondal 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+Kalpesh Chatterjee 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\end_inset
+
+ Niranjan Dey
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameTitle
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+
+presentation
+\end_layout
+
+\end_inset
+
+Contents
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Subsection
+Origins of the test
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Origins of the test
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The 
+\series bold
+Kruskal–Wallis test 
+\series default
+by ranks or 
+\series bold
+Kruskal–Wallis 
+\begin_inset Formula $\boldsymbol{H}$
+\end_inset
+
+ test 
+\series default
+named after 
+\series bold
+William Kruskal 
+\series default
+and 
+\series bold
+W.
+ Allen Wallis
+\series default
+, or 
+\series bold
+one-way ANOVA on ranks 
+\series default
+is a non-parametric method for testing whether samples originate from the
+ same distribution.
+ 
+\end_layout
+
+\begin_layout Itemize
+It is used for comparing two or more independent samples of equal or different
+ sample sizes.
+ It extends the 
+\series bold
+Mann–Whitney U test
+\series default
+, which is used for comparing 
+\series bold
+only two 
+\series default
+groups.
+ The 
+\series bold
+parametric equivalent 
+\series default
+of the Kruskal–Wallis test is the 
+\series bold
+one-way analysis of variance (ANOVA)
+\series default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+What can we conclude using this test?
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+What can we conclude using this test?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A significant Kruskal–Wallis test indicates that 
+\series bold
+at least one sample stochastically dominates one other sample
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+However the test 
+\series bold
+does not identify where 
+\series default
+this 
+\series bold
+stochastic dominance 
+\series default
+occurs or for 
+\series bold
+how many pairs of groups 
+\series default
+stochastic dominance obtains.
+\end_layout
+
+\begin_layout Itemize
+For this we can compare pairwise groups using 
+\series bold
+pairwise Mann–Whitney 
+\series default
+or using asymptotic distributions.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Basic Assumptions of the test
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Basic Assumptions of the test
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Since it is a nonparametric method, the Kruskal–Wallis test does not assume
+ a 
+\series bold
+normal distribution 
+\series default
+of the 
+\series bold
+residuals
+\series default
+, unlike the analogous one-way analysis of variance.
+\end_layout
+
+\begin_layout Itemize
+Here we only assume of an 
+\series bold
+identically shaped 
+\series default
+and 
+\series bold
+scaled 
+\series default
+distribution 
+\series bold
+for all groups
+\series default
+, 
+\series bold
+except 
+\series default
+for any 
+\series bold
+difference 
+\series default
+in 
+\series bold
+medians
+\series default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Section
+Constructing a non-parametric test for variance analysis using rank
+\end_layout
+
+\begin_layout Subsection
+Hypothesis for the Test
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Hypothesis for the Test
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Here we consider 
+\begin_inset Formula $k$
+\end_inset
+
+ mutually independent samples with 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ observations in each sample 
+\begin_inset Formula $i=1,\dots,k$
+\end_inset
+
+ from continuous populations with the assumption that they are 
+\series bold
+identically shaped 
+\series default
+and 
+\series bold
+scaled
+\series default
+.
+ Let the median of the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ sample be 
+\begin_inset Formula $\theta_{i},i=1,\dots,k$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Then the null hypothesis will be all the medians for individual groups are
+ equal which we can write as :-
+\begin_inset Formula 
+\[
+\mathscr{H}_{0}:\theta_{1}=\theta_{2}=\dotsb=\theta_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+And naturally, the alternate hypothesis will be 
+\begin_inset Formula $\mathscr{H}_{1}:\text{At least two }\theta_{i}'s\text{ differ}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Testing Procedure
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Testing Procedure
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Since under 
+\begin_inset Formula $\mathscr{H}_{0}$
+\end_inset
+
+ we have essentially a single sample of size 
+\begin_inset Formula $N=\sum n_{i}$
+\end_inset
+
+ from the common population, combine the 
+\begin_inset Formula $N$
+\end_inset
+
+ observations into a single ordered sequence from smallest to largest and
+ assign the ranks 
+\begin_inset Formula $1,2,..,N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+If adjacent ranks are well distributed among the 
+\begin_inset Formula $k$
+\end_inset
+
+ samples, the total sum of ranks 
+\begin_inset Formula $\sum\limits _{i=1}^{N}i=\frac{N\left(N+1\right)}{2}$
+\end_inset
+
+, would be divided proportionally according to sample size.
+\end_layout
+
+\begin_layout Itemize
+Let us denote the rank of the 
+\begin_inset Formula $j^{th}$
+\end_inset
+
+ observation from the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ sample as 
+\begin_inset Formula $R_{ij}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Testing Procedure
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let us denote the corresponding rank sums for each sample by 
+\begin_inset Formula $R_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Then 
+\begin_inset Formula $R_{i}=\sum\limits _{j=1}^{n_{i}}R_{ij}$
+\end_inset
+
+ and 
+\begin_inset Formula $E\left(R_{i}\right)=E\left(\sum\limits _{j=1}^{n_{i}}R_{ij}\right)=\sum\limits _{j=1}^{n_{i}}E\left(r_{ij}\right)$
+\end_inset
+
+ since each of the ranks 
+\begin_inset Formula $R_{ij}\sim U\left\{ 1,\dots,N\right\} $
+\end_inset
+
+ hence, 
+\begin_inset Formula $E\left(R_{ij}\right)=\frac{N+1}{2}$
+\end_inset
+
+ finally, 
+\begin_inset Formula $E\left(R_{i}\right)=\frac{n_{i}\left(N+1\right)}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+This can also be thought as 
+\begin_inset Formula $E\left(R_{i}\right)=\left(\frac{n_{i}}{N}\right)\times\frac{N\left(N+1\right)}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The deviation for each observed group rank sum from its expected value i.e.,
+ 
+\begin_inset Formula $R_{i}-\frac{n_{i}\left(N+1\right)}{2}$
+\end_inset
+
+ can be thought as a measure of deviation from the null assumption.
+\end_layout
+
+\begin_layout Itemize
+Hence, a reasonable test statistic could be based on a function of the all
+ these deviations.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+The 
+\begin_inset Formula $S$
+\end_inset
+
+ statistic
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The 
+\begin_inset Formula $S$
+\end_inset
+
+ statistic
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Since deviations in either direction indicate disparity between the samples
+ and absolute 
+\begin_inset Formula $\left(\left|.\right|\right)$
+\end_inset
+
+ values are not mathematically friendly, the sum of squares of these deviations
+ can be a good choice for constructing the test statistic.
+\end_layout
+
+\begin_layout Itemize
+So we construct the statisitc 
+\begin_inset Formula $S=\sum\limits _{i=1}^{k}\left[R_{i}-\frac{n_{i}\left(N+1\right)}{2}\right]^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Hence, the null hypotheis 
+\begin_inset Formula $\mathscr{H}_{0}$
+\end_inset
+
+ should be rejected for large value of 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Null Distribution of 
+\begin_inset Formula $S$
+\end_inset
+
+ (no tie case)
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Null Distribution of 
+\begin_inset Formula $S$
+\end_inset
+
+ (no tie case)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In order to determine the null probability distribution of 
+\begin_inset Formula $S$
+\end_inset
+
+, we first consider all the possible arrangements of ranks 
+\begin_inset Formula $1,2,\dots,N$
+\end_inset
+
+ into 
+\begin_inset Formula $k$
+\end_inset
+
+ groups of size 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ each.
+ This can be done in 
+\begin_inset Formula $\frac{N!}{\prod\limits _{i=1}^{k}n_{i}!}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Then for each of these arrangements, we calculate the value of the 
+\begin_inset Formula $S$
+\end_inset
+
+ statistic and let us denote by 
+\begin_inset Formula $t\left(s\right)$
+\end_inset
+
+ number of arrangements for which 
+\begin_inset Formula $S=s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Finally, we can write, 
+\begin_inset Formula $P\left[S=s\right]=t\left(s\right)\frac{\prod\limits _{i=1}^{k}n_{i}!}{N!}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Drawbacks of 
+\begin_inset Formula $S$
+\end_inset
+
+ Statistic
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Drawbacks of 
+\begin_inset Formula $S$
+\end_inset
+
+ Statistic
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+First of all the calculation for exact distribution of 
+\begin_inset Formula $S$
+\end_inset
+
+ becomes very tedious for even 
+\begin_inset Formula $n_{i}\geq5$
+\end_inset
+
+ as the number of such arrangements rapidly increase with increasing values
+ of 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+'s.
+\end_layout
+
+\begin_layout Itemize
+Here is a table of no of cases for different values of 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+'s :-
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\nicefrac{\left(n_{1}+n_{2}+n_{3}\right)!}{n_{1}!n_{2}!n_{3}!}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\nicefrac{\left(n_{1}+n_{2}+n_{3}\right)!}{n_{1}!n_{2}!n_{3}!}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $90$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $9$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $227,873,431,500$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1,680$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5,550,996,791,340$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $34,650$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $11$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $136,526,995,463,040$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $756,756$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $12$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3,384,731,762,521,200$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $17,153,136$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $13$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $84,478,098,072,866,400$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $7$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $399,072,960$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $14$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2,120,572,665,910,728,000$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $9,465,511,770$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $15$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $53,494,979,785,374,631,680$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Also there is no standard asymptotic distribution for 
+\begin_inset Formula $S$
+\end_inset
+
+ which can be used for large sample tests.
+\end_layout
+
+\begin_layout Itemize
+Lasltly, 
+\begin_inset Formula $S$
+\end_inset
+
+ only consider the sum of square of deviations of 
+\begin_inset Formula $R_{i}$
+\end_inset
+
+ from its mean but it do not standarize the observations 
+\begin_inset Formula $R_{i}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Kruskal-Wallis 
+\begin_inset Formula $H$
+\end_inset
+
+ Statistic
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Kruskal-Wallis 
+\begin_inset Formula $H$
+\end_inset
+
+ Statistic
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Due to all the drawbacks of the 
+\begin_inset Formula $S$
+\end_inset
+
+ statistic, William H.
+ Kruskal & W.
+ Allen Wallis (1952) proposed the following statistic for testing 
+\begin_inset Formula $\mathscr{H}_{0}$
+\end_inset
+
+:-
+\begin_inset Formula 
+\[
+H=\frac{12}{N\left(N+1\right)}\sum\limits _{i=1}^{k}\frac{R_{i}^{2}}{n_{i}}-3\left(N+1\right)
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Here,
+\begin_inset Formula 
+\begin{align*}
+k & =\text{the number of samples}\\
+n_{i} & =\text{the number of observations in the \ensuremath{i^{th}}sample}\\
+N & =\sum_{i}n_{i}\text{ total number of observations in all samples}\\
+R_{i} & =\text{ the sum of the ranks of the \ensuremath{i^{th}} sample}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Different Representations of 
+\begin_inset Formula $H$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Different Representations of 
+\begin_inset Formula $H$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Firstly, the conventional 
+\begin_inset Formula $H$
+\end_inset
+
+ described before 
+\begin_inset Formula $H=\frac{12}{N\left(N+1\right)}\sum\limits _{i=1}^{k}\frac{R_{i}^{2}}{n_{i}}-3\left(N+1\right)$
+\end_inset
+
+ which is easiest for computation purposes.
+\end_layout
+
+\begin_layout Enumerate
+Secondly, 
+\begin_inset Formula $H=\frac{12}{N\left(N+1\right)}\sum\limits _{i=1}^{k}\frac{1}{n_{i}}\left[R_{i}-\frac{n_{i}\left(N+1\right)}{2}\right]^{2}=\frac{12}{N\left(N+1\right)}\sum\limits _{i=1}^{k}n_{i}\left[\overline{R}_{i}-\frac{\left(N+1\right)}{2}\right]^{2}$
+\end_inset
+
+ which is useful in further discussions since it uses the average rank sums
+ 
+\begin_inset Formula $\overline{R}_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+For understanding the similarity of this test with the conventional ANOVA
+ test we write 
+\begin_inset Formula $H$
+\end_inset
+
+ in the following form :-
+\begin_inset Formula 
+\[
+H=\left(N-1\right)\frac{\sum\limits _{i=1}^{k}n_{i}\left(\overline{R}_{i}-\overline{R}\right)^{2}}{\sum\limits _{i=1}^{k}\sum\limits _{j=1}^{n_{i}}\left(R_{ij}-\overline{R}\right)^{2}}
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\overline{R}=\frac{1}{N}\sum\limits _{i=1}^{k}\sum\limits _{j=1}^{n_{i}}R_{ij}=\frac{N+1}{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Kruskal-Wallis 
+\begin_inset Formula $H$
+\end_inset
+
+ Statistic
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Kruskal-Wallis 
+\begin_inset Formula $H$
+\end_inset
+
+ Statistic
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For understanding the nature of 
+\begin_inset Formula $H$
+\end_inset
+
+, a better formulation would be :-
+\begin_inset Formula 
+\[
+H=\frac{N-1}{N}\sum_{i=1}^{k}\frac{n_{i}\left(\overline{R}_{i}-\frac{N+1}{2}\right)^{2}}{\nicefrac{\left(N^{2}-1\right)}{12}}
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\overline{R}_{i}=\frac{1}{n_{i}}\sum\limits _{j=1}^{n_{i}}r_{ij}$
+\end_inset
+
+ is the mean of 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ ranks in the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ sample.
+\end_layout
+
+\begin_layout Itemize
+If we ignore the factor 
+\begin_inset Formula $\frac{N-1}{N}$
+\end_inset
+
+ and note that 
+\begin_inset Formula $\frac{1}{2}\left(N+1\right)$
+\end_inset
+
+ is the mean and 
+\begin_inset Formula $\frac{1}{12}\left(N^{2}-1\right)$
+\end_inset
+
+ is the variance of the uniform distribution over the first 
+\begin_inset Formula $N$
+\end_inset
+
+ integers, we see that 
+\begin_inset Formula $H$
+\end_inset
+
+ is essentially a sum of squared standardized deviations of random variables
+ from their population mean.
+\end_layout
+
+\begin_layout Itemize
+In this respect 
+\begin_inset Formula $H$
+\end_inset
+
+ is similar to a 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+ variate which is defined as a sum of square of standardized normal variates,
+ subject to certain conditions on the relations among the terms of the sum.
+\end_layout
+
+\begin_layout Itemize
+If the 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+'s are not too small, the 
+\begin_inset Formula $\overline{R}_{i}$
+\end_inset
+
+ jointly will be approximately normally distributed and the relations among
+ them will meet the 
+\begin_inset Formula $\chi^{2}$
+\end_inset
+
+ conditions.
+\end_layout
+
+\begin_layout Itemize
+We further investigate approximate distribution of 
+\begin_inset Formula $H$
+\end_inset
+
+ with more rigourous mathematical arguments.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Mean and Variance of 
+\begin_inset Formula $\overline{R}_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Mean and Variance of 
+\begin_inset Formula $\overline{R}_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Under null assumption, the 
+\begin_inset Formula $k$
+\end_inset
+
+ groups can be thought as SRSWOR samples of size 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ each from a 
+\begin_inset Formula $U\left\{ 1,2,\dots,N\right\} $
+\end_inset
+
+ population.
+\end_layout
+
+\begin_layout Itemize
+Hence, 
+\begin_inset Formula 
+\begin{align*}
+\text{Population Mean}: & \mu=\frac{N+1}{2}\\
+\text{Population Variance}: & \sigma^{2}=\frac{N^{2}-1}{12}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+And the mean rank of the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ sample can be thought as a SRSWOR sample of size 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ hence,
+\begin_inset Formula 
+\begin{align*}
+E\left(\overline{R}_{i}\right)= & \mu=\frac{N+1}{2}\\
+V\left(\overline{R}_{i}\right)= & \frac{\sigma^{2}}{n_{i}}\frac{N-n_{i}}{N-1}=\frac{N^{2}-1}{12n_{i}}\frac{N-n_{i}}{N-1}=\frac{\left(N+1\right)\left(N-n_{i}\right)}{12n_{i}}\\
+\text{Cov}\left(\overline{R}_{i},\overline{R}_{j}\right)= & -\frac{N+1}{12},\rho_{\overline{R}_{i},\overline{R}_{j}}=-\sqrt{\frac{n_{i}n_{j}}{\left(N-n_{i}\right)\left(N-n_{j}\right)}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Asymptotic Distribution of 
+\begin_inset Formula $\overline{R}_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Asymptotic Distribution of 
+\begin_inset Formula $\overline{R}_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ is large, the standarized random variables,
+\begin_inset Formula 
+\[
+Z_{i}=\frac{\overline{R}_{i}-\frac{N+1}{2}}{\sqrt{\frac{\left(N+1\right)\left(N-n_{i}\right)}{12n_{i}}}}\overset{d}{\sim}N\left(0,1\right)
+\]
+
+\end_inset
+
+by Lindeberg-Levy CLT.
+\end_layout
+
+\begin_layout Itemize
+Hence, we can say,
+\begin_inset Formula 
+\[
+Z_{i}^{2}=\frac{12n_{i}}{N\left(N+1\right)\left(N-n_{i}\right)}\left(\overline{R}_{i}-\frac{N+1}{2}\right)^{2}\overset{d}{\sim}\chi_{1}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+But we can see there is a linear dependence between the quantities 
+\begin_inset Formula $\overline{R}_{i}$
+\end_inset
+
+ as, the sum of all ranks is 
+\begin_inset Formula 
+\[
+\sum_{i=1}^{k}n_{i}\overline{R}_{i}=\sum_{i=1}^{k}R_{i}=\sum_{i=1}^{k}\sum_{j=1}^{n_{i}}r_{ij}=\frac{N\left(N+1\right)}{2}
+\]
+
+\end_inset
+
+ so all the 
+\begin_inset Formula $k$
+\end_inset
+
+ variates 
+\begin_inset Formula $Z_{i},i=1,\dots,k$
+\end_inset
+
+ can't be independent (Any 
+\begin_inset Formula $k-1$
+\end_inset
+
+ of them are independent.)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Asymptotic Distribution of 
+\begin_inset Formula $H$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Asymptotic Distribution of 
+\begin_inset Formula $H$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Kruskal (1952) showed that under 
+\begin_inset Formula $\mathscr{H}_{0}$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\sqrt{\frac{N-n_{i}}{N}}Z_{i}=\frac{\overline{R}_{i}-\frac{N+1}{2}}{\sqrt{\frac{N\left(N+1\right)}{12n_{i}}}}\overset{d}{\sim}N\left(0,1\right)
+\]
+
+\end_inset
+
+ gives a better approximation (faster convergence) for asymptotic normality
+ as it can be applied for individual sample sizes as small as 
+\begin_inset Formula $5$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Finally we can say that under
+\begin_inset Formula $\mathscr{H}_{0}$
+\end_inset
+
+, if no 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+ is very small, the random variable :-
+\begin_inset Formula 
+\[
+H=\sum_{i=1}^{k}\frac{N-n_{i}}{N}Z_{i}^{2}=\frac{12}{N\left(N+1\right)}\sum_{i=1}^{k}n_{i}\left(\overline{R}_{i}-\frac{N+1}{2}\right)^{2}
+\]
+
+\end_inset
+
+is approximately distributed as a Chi-Squared Distribution with 
+\begin_inset Formula $k-1$
+\end_inset
+
+ degrees of freedom 
+\begin_inset Formula $\left(\chi_{k-1}^{2}\right)$
+\end_inset
+
+.
+ Hence, we reject 
+\begin_inset Formula $\mathscr{H}_{0}$
+\end_inset
+
+ at 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ level of significance if 
+\begin_inset Formula $H_{obs}\geq\chi_{\alpha;k-1}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Tie Case
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Tie Case
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If ties to the extent 
+\begin_inset Formula $t$
+\end_inset
+
+ are present and are handled by the midrank method, the variance of the
+ ﬁnite population is,
+\begin_inset Formula 
+\[
+\sigma^{2}=\frac{N^{2}-1}{12}-\frac{\sum t\left(t^{2}-1\right)}{12}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Then the Kruskal-Wallis Statistic becomes,
+\begin_inset Formula 
+\begin{align*}
+H^{'} & =\sum\limits _{i=1}^{k}\frac{N-n_{i}}{N}\left\{ \frac{\left[\overline{R}_{i}-\frac{N+1}{2}\right]^{2}}{\frac{\left(N+1\right)\left(N-n_{i}\right)}{12n_{i}}-\frac{N-n_{i}}{n_{i}\left(N-1\right)}\frac{\sum t\left(t^{2}-1\right)}{12}}\right\} \\
+ & =\sum\limits _{i=1}^{k}\frac{\left[\overline{R}_{i}-\frac{N+1}{2}\right]^{2}}{\frac{N\left(N+1\right)}{12n_{i}}\left[1-\frac{\sum t\left(t^{2}-1\right)}{N\left(N^{2}-1\right)}\right]}=\frac{H}{1-\frac{\sum t\left(t^{2}-1\right)}{N\left(N^{2}-1\right)}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+So, we just need to divide the original 
+\begin_inset Formula $H$
+\end_inset
+
+ statistic by the factor 
+\begin_inset Formula $1-\frac{\sum t\left(t^{2}-1\right)}{N\left(N^{2}-1\right)}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Pairwise Comparison
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pairwise Comparison
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If the null hypotheis is rejected, one may naturally want to compare different
+ groups pairwise to check if their location parameters are equal or not.
+\end_layout
+
+\begin_layout Itemize
+From the asymptotic normal distribution of 
+\begin_inset Formula $Z_{i}$
+\end_inset
+
+, we can easily make groupwise comparisons using the statistic 
+\begin_inset Formula $Z_{ij},1\leq i<j\leq k$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+Z_{ij}=\frac{\overline{R}_{i}-\overline{R}_{j}}{\sqrt{\frac{N\left(N+1\right)}{12}\left(\frac{1}{n_{i}}+\frac{1}{n_{j}}\right)}}\overset{d}{\sim}N\left(0,1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We reject our null hypothesis 
+\begin_inset Formula $\mathscr{H}_{0}^{ij}:\theta_{i}=\theta_{j}$
+\end_inset
+
+ at 
+\begin_inset Formula $\alpha^{*}$
+\end_inset
+
+ level of significance if,
+\begin_inset Formula 
+\[
+\left|Z_{ij\left(obs\right)}\right|>\tau_{\alpha^{*}}\text{ where }\alpha^{*}=\frac{\alpha}{k\left(k-1\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Pairwise Comparison
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Since, we are comparing 
+\begin_inset Formula $\nicefrac{k\left(k-1\right)}{2}$
+\end_inset
+
+ many pairs, 
+\begin_inset Formula 
+\begin{align*}
+P\left(\mathscr{H}_{0}^{ij}\text{ accepted }\forall i,j\right) & =P\left(\bigcap_{1\leq i<j\leq k}\mathscr{H}_{0}^{ij}\text{ accepted }\right)\\
+ & \geq\sum_{1\leq i<j\leq k}P\left(\mathscr{H}_{0}^{ij}\text{ accepted }\right)-\frac{k\left(k-1\right)}{2}\\
+ & =\sum_{1\leq i<j\leq k}\left(1-\alpha^{*}\right)-\frac{k\left(k-1\right)}{2}=1-\alpha
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The quantity 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is called the experimentwise error rate or the overall significance level,
+ which is the probability of at least one erroneous rejection among the
+ 
+\begin_inset Formula ${k \choose 2}=\nicefrac{k\left(k-1\right)}{2}$
+\end_inset
+
+ pairwise comparisons.
+ Typically, one takes 
+\begin_inset Formula $\alpha\geq0\cdot20$
+\end_inset
+
+ because we are making such a large number of statements.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Practical explanation using dataset and R
+\end_layout
+
+\begin_layout Subsection
+Sampling Distribution of 
+\begin_inset Formula $H$
+\end_inset
+
+ using Simulation
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Sampling Distribution of 
+\begin_inset Formula $H$
+\end_inset
+
+ using Simulation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Using R we plot the approximate sampling distribution (histogram) of 
+\begin_inset Formula $10^{5}$
+\end_inset
+
+ realized values of 
+\begin_inset Formula $H$
+\end_inset
+
+ for 
+\begin_inset Formula $n_{i}=10\,\forall\,i$
+\end_inset
+
+ and 
+\begin_inset Formula $k=7$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+We can see how accurately the asymptotic distribution fits the actual density
+ function of 
+\begin_inset Formula $\chi_{6}^{2}$
+\end_inset
+
+:-
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo=F,boring-plots,fig.width=8,fig.height=5.5,out.width='.8
+\backslash
+
+\backslash
+linewidth',warning=F,message=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+set.seed(4000)
+\end_layout
+
+\begin_layout Plain Layout
+
+H <- function(n,k = length(n))
+\end_layout
+
+\begin_layout Plain Layout
+
+{   
+\end_layout
+
+\begin_layout Plain Layout
+
+	if(length(n) == 1)
+\end_layout
+
+\begin_layout Plain Layout
+
+	{     
+\end_layout
+
+\begin_layout Plain Layout
+
+		N = n*k     
+\end_layout
+
+\begin_layout Plain Layout
+
+		x = sample(1:N)
+\end_layout
+
+\begin_layout Plain Layout
+
+	    R = NULL    
+\end_layout
+
+\begin_layout Plain Layout
+
+		for(i in 1:k)     
+\end_layout
+
+\begin_layout Plain Layout
+
+		{       
+\end_layout
+
+\begin_layout Plain Layout
+
+			R[i] = sum(x[(1+n*(i-1)):(n*i)])     
+\end_layout
+
+\begin_layout Plain Layout
+
+		}     
+\end_layout
+
+\begin_layout Plain Layout
+
+		h = (12/(n*N*(N+1)))*sum(R^2) - 3*(N+1)     
+\end_layout
+
+\begin_layout Plain Layout
+
+		return(h)   
+\end_layout
+
+\begin_layout Plain Layout
+
+	}   
+\end_layout
+
+\begin_layout Plain Layout
+
+	else   
+\end_layout
+
+\begin_layout Plain Layout
+
+	{     
+\end_layout
+
+\begin_layout Plain Layout
+
+		N = sum(n)     
+\end_layout
+
+\begin_layout Plain Layout
+
+		x = sample(1:N)     
+\end_layout
+
+\begin_layout Plain Layout
+
+		R = NULL     
+\end_layout
+
+\begin_layout Plain Layout
+
+		L = c(1,cumsum(n) + 1)     
+\end_layout
+
+\begin_layout Plain Layout
+
+		U = cumsum(n)     
+\end_layout
+
+\begin_layout Plain Layout
+
+		for(i in 1:k)     
+\end_layout
+
+\begin_layout Plain Layout
+
+		{       
+\end_layout
+
+\begin_layout Plain Layout
+
+			R[i] = sum(x[L[i]:U[i]])     
+\end_layout
+
+\begin_layout Plain Layout
+
+		}    
+\end_layout
+
+\begin_layout Plain Layout
+
+		h = (12/(N*(N+1)))*sum((R^2)/n) - 3*(N+1)     
+\end_layout
+
+\begin_layout Plain Layout
+
+		return(h)   
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+H_obs = NULL 
+\end_layout
+
+\begin_layout Plain Layout
+
+sim = 100000 
+\end_layout
+
+\begin_layout Plain Layout
+
+n = 10 ; k = 7 
+\end_layout
+
+\begin_layout Plain Layout
+
+for(i in 1:sim) 
+\end_layout
+
+\begin_layout Plain Layout
+
+{   
+\end_layout
+
+\begin_layout Plain Layout
+
+	H_obs[i] = H(n,k) 
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\begin_layout Plain Layout
+
+hist(H_obs,prob = T,breaks = 80,ylim = c(0,0.2),main = 
+\begin_inset Quotes eld
+\end_inset
+
+Distribution of H for n = 10,k = 7
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+curve(dchisq(x,df = k-1),add = T,n = 10000,col = 
+\begin_inset Quotes eld
+\end_inset
+
+red
+\begin_inset Quotes erd
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Plain Layout
+
+legend("topright",legend = expression(Distribution ~ of ~ chi[6]^2),fill
+ = "red")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout FragileFrame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Demonstration with Example
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Demonstration with Example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For demonstration purposes, we choose a dataset consisting of Mileage of
+ 60 car models from 4 different manufacturing companies.
+ Namely, we have the four companies 
+\series bold
+Apollo, Bridgestone, CEAT 
+\series default
+and 
+\series bold
+Falken
+\series default
+.
+\end_layout
+
+\begin_layout Itemize
+Here is a glimpse of the raw dataset we have in R :-
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+my_data <- read.csv(file = "D:
+\backslash
+
+\backslash
+My Documents
+\backslash
+
+\backslash
+tyre.csv",header = T,sep = ",") 
+\end_layout
+
+\begin_layout Plain Layout
+
+my_data[sample(1:nrow(my_data),size = 10),] 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Demonstration with Example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+So for exploratory data analysis, we first plot the mileage values for the
+ four different companies(factor levels) :-
+\end_layout
+
+\begin_layout Itemize
+Since here we have one factor variable with four levels (brands) hence we
+ use boxplot for demonstration :-
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo=F,fig=T,fig.height=4,fig.width=5,out.width='.8
+\backslash
+
+\backslash
+linewidth',warning=F,message=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library("ggpubr") 
+\end_layout
+
+\begin_layout Plain Layout
+
+ggboxplot(my_data, x = "Brands", y = "Mileage") +
+\end_layout
+
+\begin_layout Plain Layout
+
+  geom_jitter(width = 0.2,height = 0.2) +
+\end_layout
+
+\begin_layout Plain Layout
+
+	theme_bw()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Demonstration with Example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Clearly, from the boxplot, we can easily suspect that the mean mileage for
+ different companies are not equal.
+ Only Apollo and CEAT seem to have 
+\begin_inset Quotes eld
+\end_inset
+
+close
+\begin_inset Quotes erd
+\end_inset
+
+ median values.
+\end_layout
+
+\begin_layout Itemize
+We shall verify our claims using the Kruskal-Wallis testing procedures stated
+ so far.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Demonstration with Example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For this we firstly, assign rank for each observed mileage in the data set.
+\end_layout
+
+\begin_layout Itemize
+After assigning, the data would look like :-
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+my_data$rank <- NA 
+\end_layout
+
+\begin_layout Plain Layout
+
+my_data$rank[order(my_data$Mileage)] <- 1:nrow(my_data) 
+\end_layout
+
+\begin_layout Plain Layout
+
+my_data[sample(1:nrow(my_data),size = 10),] 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Demonstration with Example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For a better understanding, we plot the mileages along with the assigned
+ rank for each observation in the following plot :-
+\end_layout
+
+\begin_layout Itemize
+Here we use the jittered plot for different car brands along different vertical
+ axes and also corresponding rank in the pooled sample :-
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<echo=F,fig=T,fig.height=4,fig.width=5,out.width='.8
+\backslash
+
+\backslash
+linewidth',warning=F,message=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+ggplot(my_data,aes(Brands,Mileage)) + 
+\end_layout
+
+\begin_layout Plain Layout
+
+geom_jitter(width = 0.3,height = 0.3) +   
+\end_layout
+
+\begin_layout Plain Layout
+
+geom_text(size = 2.5,mapping = aes(label = rank),check_overlap = T) +
+\end_layout
+
+\begin_layout Plain Layout
+
+theme_bw() 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Demonstration with Example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Now, we calculate the rank sum values for each level as :-
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+R <- c(458,204,443,725) 
+\end_layout
+
+\begin_layout Plain Layout
+
+names(R) <- c("Apollo","Bridgestone","CEAT","Falken") 
+\end_layout
+
+\begin_layout Plain Layout
+
+R
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Which means that 
+\begin_inset Formula $R_{1}=458,R_{2}=204,R_{3}=443,R_{4}=725$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{1}=n_{2}=n_{3}=n_{4}=15$
+\end_inset
+
+ since we have 15 observations from each brand(company) so 
+\begin_inset Formula $N=\sum n_{i}=60$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Hence, the observed value of the Kruskal-Wallis 
+\begin_inset Formula $H$
+\end_inset
+
+ Statistic is :-
+\begin_inset Formula 
+\begin{align*}
+H_{obs} & =\frac{12}{N\left(N+1\right)}\sum\limits _{i=1}^{k}\frac{R_{i}^{2}}{n_{i}}-3\left(N+1\right)\\
+ & =\frac{12}{60\times61}64883\cdot6-3\times61=29\cdot73311
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Demonstration with Example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Since, 
+\begin_inset Formula $H_{obs}=29.73311>\chi_{4-1;0.05}^{2}=7.814728$
+\end_inset
+
+, so we can reject the null hypothesis :- 
+\begin_inset Formula 
+\[
+\mathscr{H}_{0}:\theta_{\text{Apollo}}=\theta_{\text{Bridgestone}}=\theta_{\text{CEAT}}=\theta_{\text{Falken}}
+\]
+
+\end_inset
+
+ at 
+\begin_inset Formula $5\%$
+\end_inset
+
+ level of significance.
+\end_layout
+
+\begin_layout Itemize
+Also, using R, we can calculate the p-value of the test as :-
+\begin_inset Formula 
+\[
+P_{\mathscr{H}_{0}}\left(H\geq H_{obs}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Which in this case comes out to be :-
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+alpha <- 0.05 
+\end_layout
+
+\begin_layout Plain Layout
+
+k <- 4 
+\end_layout
+
+\begin_layout Plain Layout
+
+R <- c(458,204,443,725) 
+\end_layout
+
+\begin_layout Plain Layout
+
+names(R) <- c("Apollo","Bridgestone","CEAT","Falken") 
+\end_layout
+
+\begin_layout Plain Layout
+
+n <- rep(15,4) 
+\end_layout
+
+\begin_layout Plain Layout
+
+N <- sum(n) 
+\end_layout
+
+\begin_layout Plain Layout
+
+H_ob <- (12/(N*(N+1)))*sum((R^2)/n) - 3*(N+1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+pchisq(H_ob,df = k-1,lower.tail = F) 
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+which is significant upto 
+\begin_inset Formula $\alpha=0.001$
+\end_inset
+
+ or in other words the difference between the means are highly significant.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Demonstration with Example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Now, since the null hypotheis is rejected, our natural tendency would be
+ to compare the pairwise mean values for different levels as :-
+\begin_inset Formula 
+\[
+Z_{ij}=\frac{\overline{R}_{i}-\overline{R}_{j}}{\sqrt{\frac{N\left(N+1\right)}{12}\left(\frac{1}{n_{i}}+\frac{1}{n_{j}}\right)}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Here we get the average rank sums as 
+\begin_inset Formula $\overline{R}_{1}=30\cdot533,\overline{R}_{2}=13\cdot6,\overline{R}_{3}=29\cdot533,\overline{R}_{4}=48\cdot33$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+In R, all these pairwise differences can be evaluated simultaneously as
+ :-
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+R_bar <- R/15 
+\end_layout
+
+\begin_layout Plain Layout
+
+Z <- outer(R_bar,R_bar,"-")/sqrt(N*(N+1)/(6*n)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+colnames(Z) <- rownames(Z) <- c("Apollo","Bridgestone","CEAT","Falken")
+\end_layout
+
+\begin_layout Plain Layout
+
+Z
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Demonstration with Example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Now, we consider two groups significantly different if 
+\begin_inset Formula 
+\[
+\left|Z_{ij\left(obs\right)}\right|>\tau_{\alpha^{*}}\text{ where }\alpha^{*}=\frac{\alpha}{k\left(k-1\right)}=\frac{0\cdot20}{4\times3}\approx0\cdot0166
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Here we have the 
+\begin_inset Formula $\left|Z_{ij\left(obs\right)}\right|$
+\end_inset
+
+ values as :-
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+alpha = 0.20
+\end_layout
+
+\begin_layout Plain Layout
+
+Z <- outer(R_bar,R_bar,"-")/sqrt(N*(N+1)/(6*n)) 
+\end_layout
+
+\begin_layout Plain Layout
+
+colnames(Z) <- rownames(Z) <- c("Apollo","Bridgestone","CEAT","Falken")
+\end_layout
+
+\begin_layout Plain Layout
+
+abs(Z)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+And the cut off point 
+\begin_inset Formula $\tau_{\alpha^{*}}$
+\end_inset
+
+ as :-
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+qnorm(p = alpha/(k*(k-1)),lower.tail = F)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Demonstration with Example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+So, now we compare if the 
+\begin_inset Formula $\left|Z_{ij\left(obs\right)}\right|$
+\end_inset
+
+ values exceed 
+\begin_inset Formula $\tau_{\alpha^{*}}$
+\end_inset
+
+ and thus get the following TRUE-FALSE matrix :-
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<comment=NA,echo=F>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+abs(Z) > qnorm(p = alpha/(k*(k-1)),lower.tail = F)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Since, only for the group 
+\begin_inset Formula $\left(\text{Apollo},\text{CEAT}\right)$
+\end_inset
+
+ the outcome is FALSE hence their mean differences are not significant at
+ 
+\begin_inset Formula $\alpha=20\%$
+\end_inset
+
+ and we can conclude that all other groups have significantly different
+ mean mileage values and this can also be verified from the boxplot given
+ before.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Some other approximations to the exact distribution of the kruskal-wallis
+ test statistic
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+(Wallace Approximation)
+\series default
+ Given by 
+\series bold
+Wallace (1959)
+\series default
+, this approximation is very similar to the 
+\begin_inset Formula $F$
+\end_inset
+
+ statistic we use in ordinary analysis of variance that can be written by
+ :-
+\begin_inset Formula 
+\[
+F=\frac{\nicefrac{H}{k-1}}{\nicefrac{\left(N-H-1\right)}{N-k}}=\frac{\left(N-k\right)H}{\left(k-1\right)\left(N-H-1\right)}
+\]
+
+\end_inset
+
+ which approximately follows a 
+\begin_inset Formula $F_{k-1,N-k}$
+\end_inset
+
+ distribution where 
+\begin_inset Formula $H$
+\end_inset
+
+ is the ordinary Kruskal-Wallis Statistic.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+(Iman Approximation) 
+\series default
+This interesting approximation is based on techniques given by 
+\series bold
+Iman (1974,1976) 
+\series default
+where a test statistic is formed by the linear combination of the 
+\begin_inset Formula $\chi^{2}\text{ and }F$
+\end_inset
+
+ approximations already stated as :-
+\begin_inset Formula 
+\[
+J=\frac{\left(k-1\right)F+H}{2}=\frac{H}{2}\left(\frac{N-k}{N-H-1}+1\right)
+\]
+
+\end_inset
+
+The approximate critical values are given by,
+\begin_inset Formula 
+\[
+J_{\alpha}\approx\frac{\left(k-1\right)F_{k-1,N-k;\alpha}+\chi_{k-1;\alpha}^{2}}{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Some other approximations to the exact distribution of the kruskal-wallis
+ test statistic
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+(Satterthwaite Approximation) 
+\series default
+A more powerful test using the concept of Welch–Satterthwaite equation where
+ the degrees of freedom of the 
+\begin_inset Formula $F$
+\end_inset
+
+ statistic previously stated is approximated in other words :-
+\begin_inset Formula 
+\[
+F=\frac{\nicefrac{H}{k-1}}{\nicefrac{\left(N-H-1\right)}{N-k}}=\frac{N-k}{k-1}\frac{\sum\limits _{i=1}^{k}n_{i}\left(\overline{R}_{i}-\overline{R}\right)^{2}}{\sum\limits _{i=1}^{k}\sum\limits _{j=1}^{n_{i}}\left(R_{ij}-\overline{R}_{i}\right)^{2}}\text{\ensuremath{\overset{a}{\sim}}}F_{k-1,\widehat{f}}
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $\widehat{f}=\frac{\left(\sum\limits _{i=1}^{k}\left(n_{i}-1\right)v_{i}\right)^{2}}{\sum\limits _{i=1}^{k}\left(n_{i}-1\right)v_{i}^{2}}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{i}=\frac{1}{n_{i}-1}\sum\limits _{j=1}^{n_{i}}\left(R_{ij}-\overline{R}_{i}\right)^{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Section
+References
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
++-
+\end_layout
+
+\end_inset
+
+
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+References
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Use of Ranks in One- Criterion Variance Analysis William H.
+ Kruskal a & W.
+ Allen Wallis a a University of Chicago Published online: 11 Apr 2012.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename pasted2.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+New approximations to the exact distribution of the kruskal-wallis test
+ statistic Ronald L Iman a & James M.
+ Davenport a a Sandia Laboratories, Albuquerque, New Mexico b Texas Tech
+ University, Lubbock, Texas Published online: 27 Jun 2007.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename pasted1.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+References
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Won Choi , Jae Won Lee , Myung-Hoe Huh & Seung-Ho Kang (2003) An Algorithm
+ for Computing the Exact Distribution of the Kruskal–Wallis Test, Communications
+ in Statistics - Simulation and Computation, 32:4, 1029-1040, DOI: 10.1081/SAC-12
+0023876.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename pasted4.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Acknowledgement
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+We would like to express our 
+\series bold
+special thanks of gratitude 
+\series default
+to our respected 
+\series bold
+Prof.N V KRISHNA CHAITANYA YERROJU 
+\series default
+sir for helping us throught the presentation work and also for giving us
+ this wonderful opportunity as we learned many things during the making
+ of this presentation.
+ 
+\end_layout
+
+\end_deeper
+\end_body
+\end_document
