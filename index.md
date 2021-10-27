@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Welcome to Spandan Ghoshal's Github Page
 
 You can use the [editor on GitHub](https://github.com/spandy9681/An-Overview-of-The-Kruskal-Wallis-One-Way-ANOVA-Test-and-Multiple-Comparisons/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
